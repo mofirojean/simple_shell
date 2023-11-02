@@ -1,0 +1,23 @@
+#!/bin/bash
+set -e
+
+read -rp "Enter commit message: " cmt_msg
+
+# Remove trailing single or double quotes from message
+cmt_msg="${cmt_msg//[\"\']/}"
+
+# Validate commit message
+if [[ -z "$cmt_msg" ]]; then
+	echo "commit message cannot be empty :(. Aborting..."
+	exit 1
+fi
+
+# Execute git commands
+git add .
+git commit -m "(SS) $cmt_msg"
+
+echo "pushing..."
+git push
+
+echo "Git operations completed successfully :)."
+
