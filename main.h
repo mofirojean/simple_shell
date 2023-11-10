@@ -37,4 +37,7 @@
 #define SHELL_HIST_FILE		".ss_history"
 #define SHELL_HIST_MAX_ENTRIES	4096
 
+
+/* ### DEFINING SIMPLE_SHELL STRUCTS ### */
+
 #endif
