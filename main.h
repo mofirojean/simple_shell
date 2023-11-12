@@ -26,5 +26,6 @@ char *_strtok(char *src_string, const char *delim);
 
 /* Type conversion functions */
 int _atoi(char *str);
+char *print_nums(int num);
 
 #endif
