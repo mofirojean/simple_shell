@@ -13,7 +13,7 @@
 
 extern char **environ;
 
-/* Declaration of  */
+/* Declaration of simple shell function */
 int _putchar(char c);
 void _puts(const char *str);
 
@@ -24,5 +24,7 @@ int _strcmp(const char *str1, const char *str2);
 int _strlen(const char *str);
 char *_strtok(char *src_string, const char *delim);
 
+/* Type conversion functions */
+int _atoi(char *str);
 
 #endif
