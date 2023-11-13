@@ -1,10 +1,11 @@
 #include "main.h"
 
-int main(int argc, char *argv[], char *env[])
+int main()
 {
-	/* Test the print_env function */
-	(void)argc;
-	print_env(argv, env, argv);
+	/* Test the str_add function */
+	char *result = str_add("command");
+	printf("Result: %s\n", result);
+	free(result);
 
 	return (0);
 }

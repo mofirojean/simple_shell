@@ -10,12 +10,19 @@
 #include <sys/types.h>
 #include <limits.h>
 #include <errno.h>
+#include <dirent.h>
 
 extern char **environ;
 
 /* Declaration of simple shell function */
 int _putchar(char c);
 void _puts(const char *str);
+
+/* Shell path and navigation functions */
+char *fix_path(char *filename);
+int checkexe(char *filename);
+char *str_add(char *filename);
+char *string_add(void);
 
 /* String manipulation functions */
 char *_strcpy(char *dest, const char *src);
