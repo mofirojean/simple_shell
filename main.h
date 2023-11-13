@@ -31,6 +31,9 @@ int _unsetenv(char **args, char **envp, char *argv, int count);
 char *_getenv(char *name);
 int _putenv(char *name, char *string);
 
+/* Memory manipulation functions */
+void *_realloc(void *old_ptr, unsigned int new_size);
+
 /* Type conversion functions */
 int _atoi(char *str);
 char *print_nums(int num);
