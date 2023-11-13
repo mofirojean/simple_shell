@@ -19,14 +19,12 @@ char *print_nums(int num)
 	}
 	string = malloc(j + 3);
 	j = 0;
-
 	while (num >= 10)
 	{
 		int digit = num / pow;
 
 		num -= (pow * digit);
 		string[j++] = (digit + '0');
-
 		if (num == 0)
 		{
 			while (pow != 1)
@@ -39,13 +37,15 @@ char *print_nums(int num)
 
 		pow /= 10;
 	}
-
 	if (num != 0)
 		string[j++] = (num + '0');
 	else
-		for (int i = 0; i < tracker; i++)
-			string[j++] = '0';
+	{
+		int i;
 
+		for (i = 0; i < tracker; i++)
+			string[j++] = '0';
+	}
 	string[j] = '\0';
 	return (string);
 }

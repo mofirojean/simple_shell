@@ -24,6 +24,13 @@ int _strcmp(const char *str1, const char *str2);
 int _strlen(const char *str);
 char *_strtok(char *src_string, const char *delim);
 
+/* Environment manipulation functions */
+int _setenv(char **args, char **envp, char *argv, int count);
+int _setenv2(char *name, char *value, int overwrite);
+int _unsetenv(char **args, char **envp, char *argv, int count);
+char *_getenv(char *name);
+int _putenv(char *name, char *string);
+
 /* Type conversion functions */
 int _atoi(char *str);
 char *print_nums(int num);
