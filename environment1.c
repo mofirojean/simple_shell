@@ -3,20 +3,20 @@
 /**
  * _setenv - Changes or adds an environment variable.
  * @args: Command line arguments.
- * @envp: Environment variables.
+ * @env: Environment variables.
  * @argv: Current executable filename.
  * @count: Count.
  *
  * Return: 1 if successful, otherwise 0.
  */
-int _setenv(char **args, char **envp, char *argv, int count)
+int _setenv(char **args, char **env, char *argv, int count)
 {
 	char *output;
 	int i = 0, overwrite = 1;
 	size_t name_len, val_len;
 	char *init_value;
 
-	(void)envp;
+	(void)env;
 	(void)argv;
 	(void)count;
 
@@ -99,18 +99,18 @@ int _setenv2(char *name, char *value, int overwrite)
 /**
  * _unsetenv - Removes an environment variable.
  * @args: Command line arguments.
- * @envp: Environment variables.
+ * @env: Environment variables.
  * @argv: Current executable filename.
  * @count: Count.
  *
  * Return: 1 if the operation is successful, otherwise 0.
  */
-int _unsetenv(char **args, char **envp, char *argv, int count)
+int _unsetenv(char **args, char **env, char *argv, int count)
 {
 	char *name;
 	int i;
 
-	(void)envp;
+	(void)env;
 	(void)argv;
 	(void)count;
 

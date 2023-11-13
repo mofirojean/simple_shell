@@ -25,9 +25,10 @@ int _strlen(const char *str);
 char *_strtok(char *src_string, const char *delim);
 
 /* Environment manipulation functions */
-int _setenv(char **args, char **envp, char *argv, int count);
+int _setenv(char **args, char **env, char *argv, int count);
 int _setenv2(char *name, char *value, int overwrite);
-int _unsetenv(char **args, char **envp, char *argv, int count);
+int _unsetenv(char **args, char **env, char *argv, int count);
+int print_env(char **args, char **env, char **argv);
 char *_getenv(char *name);
 int _putenv(char *name, char *string);
 

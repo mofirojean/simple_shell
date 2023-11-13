@@ -82,3 +82,36 @@ int _putenv(char *name, char *string)
 	return (0);
 }
 
+/**
+ * print_env - Prints current environment variables.
+ * @args: Command line arguments.
+ * @env: Environment variables.
+ * @argv: Current executable filename.
+ *
+ * This function prints the current environment variables.
+ *
+ * Return: 1 (success).
+ */
+int print_env(char **args, char **env, char **argv)
+{
+	int i;
+	(void)env;
+
+	/* Check if there are any arguments provided */
+	if (args[1] != NULL)
+	{
+		perror(argv[0]);
+		return (1);
+	}
+
+	/* Loop through the environment variables and print each one */
+	for (i = 0; environ[i]; i++)
+	{
+		_puts(environ[i]);
+		_putchar('\n');
+	}
+
+	return (1);
+}
+
+
