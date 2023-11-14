@@ -18,6 +18,9 @@ extern char **environ;
 int _putchar(char c);
 void _puts(const char *str);
 
+/* String tokenization function */
+char **tokenise(char *str);
+
 /* Shell path and navigation functions */
 char *fix_path(char *filename);
 int checkexe(char *filename);
@@ -30,6 +33,7 @@ char *_strcat(char *dest, const char *src);
 int _strcmp(const char *str1, const char *str2);
 int _strlen(const char *str);
 char *_strtok(char *src_string, const char *delim);
+char *_strdup(const char *str);
 
 /* Environment manipulation functions */
 int _setenv(char **args, char **env, char *argv, int count);
@@ -41,6 +45,7 @@ int _putenv(char *name, char *string);
 
 /* Memory manipulation functions */
 void *_realloc(void *old_ptr, unsigned int new_size);
+void *_realloc2(void *ptr, unsigned int old_size, unsigned int new_size);
 
 /* Type conversion functions */
 int _atoi(char *str);

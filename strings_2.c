@@ -42,3 +42,38 @@ char *_strtok(char *src_string, const char *delim)
 	return (token);
 }
 
+/**
+ * _strdup - Duplicates a string.
+ * @str: Input string to duplicate.
+ *
+ * This function allocates memory for a new string containing a duplicate
+ * of the input string. The caller is responsible for freeing the allocated
+ * memory.
+ *
+ * Return: Pointer to the duplicated string (NULL if memory allocation fails).
+ */
+char *_strdup(const char *str)
+{
+	char *duplicate;
+	size_t length, i;
+
+	if (str == NULL)
+		return (NULL);
+
+	/* Calculate the length of the input string */
+	length = 0;
+	while (str[length] != '\0')
+		length++;
+
+	/* Allocate memory for the duplicated string */
+	duplicate = malloc((length + 1) * sizeof(char));
+	if (duplicate == NULL)
+		return (NULL);
+
+	/* Copy the characters from the input string to the duplicated string */
+	for (i = 0; i <= length; i++)
+		duplicate[i] = str[i];
+
+	return (duplicate);
+}
+

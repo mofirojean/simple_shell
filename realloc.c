@@ -34,3 +34,43 @@ void *_realloc(void *old_ptr, unsigned int new_size)
 	return (new_ptr);
 }
 
+/**
+ * _realloc2 - Reallocates memory with zero initialization.
+ * @ptr: Pointer to the previously allocated memory.
+ * @old_size: Old size of the allocated memory.
+ * @new_size: New size to reallocate.
+ *
+ * Return: Pointer to the reallocated memory.
+ */
+void *_realloc2(void *ptr, unsigned int old_size, unsigned int new_size)
+{
+	void *new_ptr;
+
+	if (new_size == 0)
+	{
+		free(ptr);
+		return (NULL);
+	}
+	new_ptr = malloc(new_size);
+	if (!new_ptr)
+	{
+		free(ptr);
+		return (NULL);
+	}
+	if (ptr)
+	{
+		char *old_ptr = ptr;
+		char *new_ptr_char = new_ptr;
+		unsigned int i;
+
+		/* Copy the contents of the old memory to the new memory */
+		for (i = 0; i < old_size && i < new_size; ++i)
+		{
+			new_ptr_char[i] = old_ptr[i];
+		}
+		free(ptr);
+	}
+
+	return (new_ptr);
+}
+
