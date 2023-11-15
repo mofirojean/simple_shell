@@ -20,13 +20,11 @@ char **tokenise(char *str)
 	str_copy = _strdup(str);
 	if (!str_copy)
 		return (NULL);
-
 	token = _strtok(str_copy, " ");
 	while (token)
 	{
 		if (_strcmp(token, "#") || token[0] == '#')
 			break;
-
 		if (!_strcmp(token, ""))
 		{
 			args = _realloc2(args, i * sizeof(char *), (i + 1) * sizeof(char *));
@@ -38,7 +36,6 @@ char **tokenise(char *str)
 				free(str_copy);
 				return (NULL);
 			}
-
 			args[i++] = _strdup(token);
 			if (args[i - 1] == NULL)
 			{
@@ -49,14 +46,11 @@ char **tokenise(char *str)
 				return (NULL);
 			}
 		}
-
 		token = _strtok(NULL, " ");
 	}
-
 	args = _realloc2(args, i * sizeof(char *), (i + 1) * sizeof(char *));
 	if (args)
 		args[i] = NULL;
-
 	free(str_copy);
 	return (args);
 }
