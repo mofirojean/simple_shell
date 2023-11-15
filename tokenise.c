@@ -32,8 +32,7 @@ char **tokenise(char *str)
 			{
 				while (i > 0)
 					free(args[--i]);
-				free(args);
-				free(str_copy);
+				free_arguments(args, str_copy);
 				return (NULL);
 			}
 			args[i++] = _strdup(token);
@@ -41,8 +40,7 @@ char **tokenise(char *str)
 			{
 				while (i > 0)
 					free(args[--i]);
-				free(args);
-				free(str_copy);
+				free_arguments(args, str_copy);
 				return (NULL);
 			}
 		}
@@ -53,5 +51,18 @@ char **tokenise(char *str)
 		args[i] = NULL;
 	free(str_copy);
 	return (args);
+}
+
+/**
+ * free_arguments - Free array of arguments.
+ * @args: Input argument to be freed.
+ * @str_copy: Input argument to be freed.
+ *
+ * Return: void.
+ */
+void free_arguments(char **args, char *str_copy)
+{
+	free(args);
+	free(str_copy);
 }
 

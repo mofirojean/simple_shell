@@ -38,6 +38,7 @@ int handle_exit(char **args, char **av, char **env, int count,
 		char **reads, char *read);
 
 /* String tokenization function */
+void free_arguments(char **args, char *str_copy);
 char **tokenise(char *str);
 
 /* Replace environment variable */
