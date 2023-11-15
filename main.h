@@ -17,9 +17,11 @@ extern char **environ;
 /* Declaration of simple shell function */
 int _putchar(char c);
 void _puts(const char *str);
+void free_args(char **args);
 
 /* get commandline arguments */
 ssize_t _getline(char **line, size_t *line_size, int fd);
+int get_user_input(char **input);
 
 /* String tokenization function */
 char **tokenise(char *str);
@@ -56,5 +58,8 @@ void *_realloc2(void *ptr, unsigned int old_size, unsigned int new_size);
 /* Type conversion functions */
 int _atoi(char *str);
 char *print_nums(int num);
+
+/* Command error handling functions */
+void command_not_found(char *program_name, int count, char *command_name);
 
 #endif
