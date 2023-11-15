@@ -18,8 +18,14 @@ extern char **environ;
 int _putchar(char c);
 void _puts(const char *str);
 
+/* get commandline arguments */
+ssize_t _getline(char **line, size_t *line_size, int fd);
+
 /* String tokenization function */
 char **tokenise(char *str);
+
+/* Replace environment variable */
+char **replace(char **args);
 
 /* Shell path and navigation functions */
 char *fix_path(char *filename);

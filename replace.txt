@@ -1,0 +1,109 @@
+char **replace(char **args)
+{
+	int n = 0;
+	char *ptr, *get = NULL;
+
+	while (args[n])
+	{
+		if (args[n][0] == '$')
+		{
+			if ((args[n][1] == '$') && args[n][2] == '\0')
+			{
+				/* Replace "$$" with process ID */
+				get = print_nums(getpid());
+			}
+			else
+			{
+				/* Replace "$variable" with the value of the environment variable */
+				ptr = &args[n][1];
+				get = _getenv(ptr) ? _strdup(_getenv(ptr)) : NULL;
+			}
+
+			if (get)
+			{
+				/* Replace the argument with the obtained value */
+				free(args[n]);
+				args[n] = get;
+			}
+		}
+		n++;
+	}
+
+	return (args);
+}
+
+
+char **replace(char **args) {
+	int n = 0;
+	char *ptr, *ptr2, *get = NULL, *envValue;
+
+	while (args[n]) {
+		if (args[n][0] == '$') {
+			if (args[n][1] == '\0')
+			{
+				n++;
+				continue;
+			}
+			else if (args[n][1] == '$' && args[n][2] == '\0')
+			{
+				get = print_nums(getpid());
+				ptr2 = &args[n][0];
+				args[n] = _realloc2(ptr2, 0, sizeof(char) * (_strlen(get) + 1));
+				_strcpy(args[n], get);
+				free(get);
+				free(ptr2);
+			}
+			else
+			{
+				ptr = &args[n][1];
+				ptr2 = &args[n][0];
+				envValue = _getenv(ptr);
+				if (envValue)
+				{
+					args[n] = _realloc2(ptr2, 0, sizeof(char) * (_strlen(envValue) + 1));
+					_strcpy(args[n], envValue);
+					free(ptr2);
+				}
+			}
+		}
+		n++;
+	}
+
+    return (args);
+}
+
+
+char **replace(char **args)
+{
+	int n = 0;
+	char *ptr, *ptr2, *get = NULL;
+
+	while (args[n])
+	{
+		if (args[n][0] == '$')
+		{
+			if ((args[n][1] == '$') && args[n][2] == '\0')
+			{
+				/* Replace "$$" with the process ID */
+				get = print_nums(getpid());
+				ptr2 = args[n];
+				args[n] = _strdup(get);
+				free(get);
+				free(ptr2);
+			}
+			else
+			{
+				/* Replace "$<variable>" with the corresponding environment variable */
+				ptr = &args[n][1];
+				get = _getenv(ptr);
+				ptr2 = args[n];
+
+				/* If environment variable not found, replace with an empty string */
+				args[n] = _strdup(get ? get : "");
+				free(ptr2);
+			}
+		}
+		n++;
+	}
+	return (args);
+}

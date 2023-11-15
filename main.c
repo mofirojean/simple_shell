@@ -2,18 +2,24 @@
 
 int main()
 {
-	/* Test the tokenise function */
-	int i;
-	char **result;
+	/* Test the replace function */
+	char *line = NULL;
+	size_t line_size = 0;
+	ssize_t chars_read;
 
-	result = tokenise("arg1 arg2 arg3 # comment");
+	printf("Enter a line of text:\n");
+	chars_read = _getline(&line, &line_size, STDIN_FILENO);
 
-	for (i = 0; result[i] != NULL; i++) {
-		printf("Arg %d: %s\n", i + 1, result[i]);
-		free(result[i]);
+	if (chars_read == -1)
+	{
+		fprintf(stderr, "Error reading line\n");
+		free(line);
+		return (EXIT_FAILURE);
 	}
 
-	free(result);
+	printf("You entered: %s\n", line);
+	free(line);
+
 
 	return (0);
 }
