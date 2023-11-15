@@ -19,9 +19,23 @@ int _putchar(char c);
 void _puts(const char *str);
 void free_args(char **args);
 
+/* excution functions */
+void execute_command(char **args, char *stringexe, char **env, char **av);
+int execute_read(char *read, char **env, char **argv, int count,
+		char **reads, char *reader);
+
 /* get commandline arguments */
 ssize_t _getline(char **line, size_t *line_size, int fd);
 int get_user_input(char **input);
+
+/* handle error to the console */
+void print_exit_error(char *av, int count, char *status);
+void print_cd_error(char *argv, int count, char *name);
+
+/* handle common system task */
+int handle_cd(char **args, char **env, char *argv, int count);
+int handle_exit(char **args, char **av, char **env, int count,
+		char **reads, char *read);
 
 /* String tokenization function */
 char **tokenise(char *str);
@@ -58,6 +72,14 @@ void *_realloc2(void *ptr, unsigned int old_size, unsigned int new_size);
 /* Type conversion functions */
 int _atoi(char *str);
 char *print_nums(int num);
+
+/* Handle common system task*/
+int handle_built(char **args, char **env, char **argv, int count,
+		char **reads, char *read);
+
+/* Handles directory manipulation task*/
+char *fix_dir(char *dir, char *cwd);
+char *_getdir(char *dir);
 
 /* Command error handling functions */
 void command_not_found(char *program_name, int count, char *command_name);
