@@ -28,8 +28,5 @@ void _puts(const char *str)
 		_putchar(*str);
 		str++;
 	}
-
-	/* Print a newline character at the end of the string */
-	_putchar('\n');
 }
 
